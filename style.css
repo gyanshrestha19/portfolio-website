@@ -1,13 +1,21 @@
 :root {
-    --bg-color: #030303;
-    --text-color: #f0f0f0;
-    --accent-primary: #ccff00;
-    /* Neon Lime */
-    --accent-secondary: #ff0099;
-    /* Hot Pink */
-    --accent-tertiary: #00ccff;
-    /* Cyan */
-    --card-bg: #0a0a0a;
+    /* --- Color Palette (Dark Charcoal + Teal) --- */
+    --bg-dark: #1e1e1e;
+    /* Deep Charcoal */
+    --card-bg: #2d2d2d;
+    /* Lighter Charcoal for cards */
+    --text-light: #ffffff;
+    --text-muted: #b0b0b0;
+    --accent-primary: #00d2d3;
+    /* Bright Teal */
+    --accent-secondary: #ff9f43;
+    /* Keep orange for highlights if needed */
+
+    /* Liquid Glass / UI Elements */
+    --glass-bg: rgba(30, 30, 30, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.1);
+
+    /* Fonts */
     --font-heading: 'Syne', sans-serif;
     --font-body: 'Inter', sans-serif;
     --grid-gap: 2rem;
@@ -153,6 +161,22 @@ body.hovering .custom-cursor {
     letter-spacing: -0.02em;
 }
 
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 8vw, 6rem);
+    /* Responsive but Big */
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    color: var(--text-light);
+    /* White */
+}
+
+.highlight {
+    color: var(--accent-primary);
+    /* Teal */
+}
+
 .cursor {
     animation: blink 1s step-end infinite;
 }
@@ -181,7 +205,7 @@ body.hovering .custom-cursor {
 
 .headline {
     font-family: var(--font-heading);
-    font-size: clamp(3.5rem, 1vw, 7rem);
+    font-size: clamp(1rem, 3vw, 5rem);
     line-height: 0.9;
     font-weight: 800;
     text-transform: uppercase;
@@ -1186,4 +1210,50 @@ footer {
 .reveal.active {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 1024px) {
+    .bento-grid {
+        grid-template-columns: 1fr;
+        /* Stack bento grid */
+    }
+
+    .intro-box,
+    .profile-box,
+    .skills-box,
+    .bento-group-bottom-left {
+        grid-column: span 1;
+    }
+
+    .navbar {
+        width: 90%;
+        /* Wider navbar on mobile */
+    }
+}
+
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+        /* Stack projects */
+    }
+
+    .hero-title {
+        font-size: 3rem;
+        /* Enforce readability on small screens */
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .cta-group {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
 }

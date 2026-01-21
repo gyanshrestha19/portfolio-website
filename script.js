@@ -112,4 +112,44 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 1000);
         });
     }
+
+    /* --- Project Modal Logic (Generic) --- */
+    const setupModal = (triggerId, modalId) => {
+        const trigger = document.getElementById(triggerId);
+        const modal = document.getElementById(modalId);
+
+        if (!trigger || !modal) return;
+
+        const closeModalBtn = modal.querySelector('.close-modal');
+        const modalBackdrop = modal.querySelector('.modal-backdrop');
+        const gallery = modal.querySelector('.logos-gallery');
+
+        // Open Modal
+        trigger.addEventListener('click', (e) => {
+            e.preventDefault();
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        // Close Modal Function
+        const closeModal = () => {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        };
+
+        // Close events
+        if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+        if (modalBackdrop) modalBackdrop.addEventListener('click', closeModal);
+
+        // Escape key to close
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+    };
+
+    // Setup Modals
+    setupModal('project-logo-trigger', 'logo-modal');
+    setupModal('project-poster-trigger', 'poster-modal');
 });

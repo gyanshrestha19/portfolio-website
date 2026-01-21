@@ -36,8 +36,9 @@
 
     <header class="hero" id="home">
         <div class="hero-content">
-            <h1 class="headline slide-up">Hi, I'm <span class="outline-text">Gyan</span></h1>
-            <h2 class="subtitle slide-up">Graphic Designer & Illustrator</h2>
+            <p class="code-greeting">Hello, World<span class="cursor"></span></p>
+            <h1 class="headline slide-up">I'M <span class="highlight">GYAN</span></h1>
+            <h3 class="subtitle slide-up">Graphic Designer, App Development Enthusiast & Freelancer</h3>
             <div class="cta-group fade-in-delay">
                 <a href="#projects" class="btn primary">View My Projects</a>
                 <a href="#" class="btn secondary">Download CV</a>
@@ -52,92 +53,193 @@
     </header>
 
     <section id="about" class="about-section">
-        <div class="container fluid-grid">
-            <div class="about-visual reveal">
-                <div class="image-frame">
-                    <!-- Placeholder for profile image -->
-                    <div class="placeholder-img"></div>
-                    <div class="floating-shape shape-1"></div>
-                    <div class="floating-shape shape-2"></div>
-                </div>  
-            </div>
-            <div class="about-text reveal">
-                <h2 class="section-title">About Me</h2>
-                <p>I don't just design; I craft visual experiences. With a deep passion for <strong>Illustrator,
-                        Photoshop, and InDesign,</strong> I transform abstract ideas into tangible, pixel-perfect
-                    realities.</p>
-                <p>My work is driven by asymmetry, bold typography, and the belief that design should provoke a feeling,
-                    not just convey information.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="skills" class="skills-section">
         <div class="container">
-            <h2 class="section-title text-center reveal">Skills</h2>
-            <div class="skills-grid reveal">
-                <div class="skill-item" title="Photoshop">
-                    <img src="C:\Users\GYAN\Downloads\photoshop.png" alt="Photoshop">
+            <div class="bento-grid">
+                <!-- Info Box -->
+                <div class="bento-box intro-box reveal">
+                    <p class="greeting-text">Hey there, My name is Gyan Shrestha.</p>
+                    <div class="bio-text">
+                        <p>I don't just design; I craft visual experiences. With a deep passion for <strong>Illustrator,
+                                Photoshop, and InDesign,</strong> I transform abstract ideas into tangible,
+                            pixel-perfect
+                            realities.</p>
+                        <p>I'm a quick learner and collaborate closely with clients to create efficient,
+                            scalable, and user-friendly solutions that solve real-world problems. Let's work
+                            together to bring ideas to life!</p>
+                    </div>
                 </div>
-                <div class="skill-item" title="Illustrator">
-                    <img src="C:\Users\GYAN\Downloads\illustrator.png" alt="Illustrator">
-                </div>
-                <div class="skill-item" title="InDesign">
-                    <img src="C:\Users\GYAN\Downloads\indesign.png" alt="InDesign">
-                </div>
-                <div class="skill-item" title="Figma">
-                    <img src="C:\Users\GYAN\Downloads\figma.png" alt="Figma">
-                </div>
-                <div class="skill-item" title="Canva">
-                    <img src="C:\Users\GYAN\Downloads\canva.png" alt="Canva">
-                </div>
-                <!-- Visual placeholder icons for generic skills -->
 
+                <!-- Profile Box -->
+                <div class="bento-box profile-box reveal">
+                    <div class="profile-container">
+                        <div class="placeholder-img"></div>
+                        <div class="shooting-star"></div>
+                        <div class="shooting-star"></div>
+                    </div>
+                </div>
+
+                <!-- Stats & Quote Group -->
+                <div class="bento-group-bottom-left reveal">
+                    <div class="stats-row">
+                        <div class="bento-box stat-box">
+                            <span class="stat-number">5+</span>
+                            <span class="stat-label">Completed Projects</span>
+                        </div>
+                        <div class="bento-box stat-box">
+                            <span class="stat-number">2+</span>
+                            <span class="stat-label">Years of Experience</span>
+                        </div>
+                    </div>
+                    <div class="bento-box quote-box">
+                        <h3>Design enthusiast with a passion for development.</h3>
+                    </div>
+                </div>
+
+                <!-- Skills Box -->
+                <div class="bento-box skills-box reveal">
+                    <h3>My Skills</h3>
+                    <div class="skills-icons">
+                        <div class="skill-icon" title="Photoshop">
+                            <img src="images/photoshop.png" alt="Ps">
+                        </div>
+                        <div class="skill-icon" title="Illustrator">
+                            <img src="images/illustrator.png" alt="Ai">
+                        </div>
+                        <div class="skill-icon" title="Figma">
+                            <img src="images/figma.png" alt="Figma">
+                        </div>
+                        <div class="skill-icon" title="HTML">
+                            <img src="images/html.png" alt="HTML">
+                        </div>
+                        <div class="skill-icon" title="CSS">
+                            <img src="images/css.png" alt="CSS">
+                        </div>
+                        <div class="skill-icon" title="Js">
+                            <img src="images/js.png" alt="JS">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+
+    <!-- Skills section removed and merged into About Me -->
 
     <section id="projects" class="projects-section">
         <div class="container">
             <h2 class="section-title reveal">Projects</h2>
             <div class="projects-grid">
-                <!-- Project 1 -->
-                <div class="project-card large reveal">
+                <!-- Project 1: Logo Design (Triggers Modal) -->
+                <div class="project-card large reveal" id="project-logo-trigger">
                     <div class="card-image">
-                        <!-- Placeholder color -->
+                        <!-- Placeholder color/image -->
                         <div class="placeholder-project p1"></div>
                     </div>
                     <div class="card-info">
-                        <h3>Neon brand Identity</h3>
-                        <p>Branding / Illustration</p>
-                        <a href="#" class="project-link"><ion-icon name="arrow-forward-outline"></ion-icon></a>
+                        <h3>Logo Design</h3>
+                        <button class="project-link-btn" aria-label="Open Project">
+                            <ion-icon name="arrow-forward-outline"></ion-icon>
+                        </button>
                     </div>
                 </div>
-                <!-- Project 2 -->
-                <div class="project-card tall reveal">
+
+                <!-- Project 2: Poster Design (Triggers Modal) -->
+                <div class="project-card large reveal" id="project-poster-trigger">
                     <div class="card-image">
                         <div class="placeholder-project p2"></div>
                     </div>
                     <div class="card-info">
-                        <h3>Editorial Layout</h3>
-                        <p>Print Design</p>
-                        <a href="#" class="project-link"><ion-icon name="arrow-forward-outline"></ion-icon></a>
+                        <h3>Poster Design</h3>
+                        <button class="project-link-btn" aria-label="Open Project">
+                            <ion-icon name="arrow-forward-outline"></ion-icon>
+                        </button>
                     </div>
                 </div>
-                <!-- Project 3 -->
-                <div class="project-card medium reveal">
+
+                <!-- Project 3: Coding (New) -->
+                <div class="project-card large reveal">
                     <div class="card-image">
                         <div class="placeholder-project p3"></div>
                     </div>
                     <div class="card-info">
-                        <h3>Vector Art Series</h3>
-                        <p>Illustration</p>
-                        <a href="#" class="project-link"><ion-icon name="arrow-forward-outline"></ion-icon></a>
+                        <h3>Coding</h3>
+                        <a href="https://github.com/gyanshrestha19" target="_blank" class="project-link-btn"
+                            aria-label="Open Code">
+                            <ion-icon name="code-slash-outline"></ion-icon>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Modal Overlay for Logo Project -->
+    <div class="project-modal" id="logo-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+            <button class="close-modal" aria-label="Close Modal">
+                <ion-icon name="close-outline"></ion-icon>
+            </button>
+
+            <div class="modal-header">
+                <h2>Captivating Logos</h2>
+                <p>Explore a collection of logos that tell unique brand stories.</p>
+            </div>
+
+            <div class="logos-gallery">
+                <!-- Logo Card 1 -->
+                <div class="logo-card">
+                    <img src="images/E-Shop.jpg" alt="E-Shop Logo">
+                    <div class="logo-info">
+                        <h4>E-Shop Logo</h4>
+                        <span>Online Shopping</span>
+                    </div>
+                </div>
+                <!-- Logo Card 2 -->
+                <div class="logo-card">
+                    <img src="images/Headphone Logo.jpg" alt="Headphone logo">
+                    <div class="logo-info">
+                        <h4>Headphone Logo</h4>
+                        <span>Audio Devices</span>
+                    </div>
+                </div>
+                <!-- Logo Card 3 -->
+                <div class="logo-card">
+                    <img src="images/Xenon.jpg" alt="Logo 3">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Overlay for Poster Project -->
+    <div class="project-modal" id="poster-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+            <button class="close-modal" aria-label="Close Modal">
+                <ion-icon name="close-outline"></ion-icon>
+            </button>
+
+            <div class="modal-header">
+                <h2>Creative Posters</h2>
+                <p>A showcase of impactful poster designs and marketing materials.</p>
+            </div>
+
+            <div class="logos-gallery">
+                <!-- Poster Card 1 -->
+                <div class="logo-card">
+                    <img src="images/cr7.png" alt="cr7">
+                </div>
+                <!-- Poster Card 2 -->
+                <div class="logo-card">
+                    <img src="images/Noodles.jpg" alt="noodles">
+                </div>
+                <!-- Poster Card 3 -->
+                <div class="logo-card">
+                    <img src="images/Ticket Poster.jpg" alt="Poster 3">
+                </div>
+            </div>
+        </div>
+    </div>
 
     <section id="education" class="education-section">
         <div class="container">
@@ -231,11 +333,11 @@
     <footer>
         <div class="container footer-content">
             <div class="socials">
-                <a href="#">LinkedIn</a>
-                <a href="#">Behance</a>
-                <a href="#">Instagram</a>
+                <a href="#" aria-label="LinkedIn"><ion-icon name="logo-linkedin"></ion-icon></a>
+                <a href="#" aria-label="Behance"><ion-icon name="logo-behance"></ion-icon></a>
+                <a href="#" aria-label="Instagram"><ion-icon name="logo-instagram"></ion-icon></a>
             </div>
-            <p class="copyright">&copy; 2026 Gyan. Designed with Purpose.</p>
+            <p class="copyright">Copyright @2026. Gyan Shrestha</p>
         </div>
     </footer>
 

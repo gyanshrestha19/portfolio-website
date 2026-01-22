@@ -152,4 +152,5 @@ document.addEventListener('DOMContentLoaded', () => {
     // Setup Modals
     setupModal('project-logo-trigger', 'logo-modal');
     setupModal('project-poster-trigger', 'poster-modal');
+    setupModal('project-web-trigger', 'web-modal');
 });

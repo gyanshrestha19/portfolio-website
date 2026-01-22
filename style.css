@@ -270,12 +270,15 @@ body.hovering .custom-cursor {
 }
 
 .social-links {
-    position: absolute;
-    bottom: 3rem;
-    right: 5%;
+    position: relative;
+    bottom: auto;
+    right: auto;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 2rem;
+    justify-content: flex-start;
+    /* Left align as requested */
+    margin-top: 1rem;
 }
 
 .social-links a {
@@ -286,7 +289,7 @@ body.hovering .custom-cursor {
 
 .social-links a:hover {
     color: var(--accent-tertiary);
-    transform: translateX(-5px);
+    transform: translateY(-5px);
 }
 
 .hero-bg-accent {

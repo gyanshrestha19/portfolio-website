@@ -320,7 +320,7 @@ section {
 }
 
 .bento-box {
-    background: #08080a;
+    background: #000;
     border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 24px;
     padding: 2.5rem;

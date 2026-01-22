@@ -1,42 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    /* --- Custom Cursor Logic --- */
-    const cursor = document.querySelector('.custom-cursor');
-    const follower = document.querySelector('.cursor-follower');
 
-    // Initial position to avoid blink
-    let mouseX = 0, mouseY = 0;
-    let followerX = 0, followerY = 0;
-
-    document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-
-        // Immediate cursor movement
-        cursor.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%)`;
-    });
-
-    // Smooth follower loop
-    function animateFollower() {
-        followerX += (mouseX - followerX) * 0.1;
-        followerY += (mouseY - followerY) * 0.1;
-
-        follower.style.transform = `translate(${followerX}px, ${followerY}px) translate(-50%, -50%)`;
-        requestAnimationFrame(animateFollower);
-    }
-    animateFollower();
-
-    /* --- Hover States --- */
-    const interactiveElements = document.querySelectorAll('a, button, input, textarea, .project-card, .skill-tag');
-
-    interactiveElements.forEach(el => {
-        el.addEventListener('mouseenter', () => {
-            document.body.classList.add('hovering');
-        });
-        el.addEventListener('mouseleave', () => {
-            document.body.classList.remove('hovering');
-        });
-    });
 
     /* --- Scroll Reveal with Intersection Observer --- */
     const observerOptions = {
@@ -82,11 +46,13 @@ document.addEventListener('DOMContentLoaded', () => {
             document.documentElement.style.setProperty('--bg-color', '#e0e0e0');
             document.documentElement.style.setProperty('--text-color', '#111');
             document.documentElement.style.setProperty('--card-bg', '#fff');
+            document.documentElement.style.setProperty('--input-bg', 'rgba(255, 255, 255, 0.8)');
         } else {
             icon.setAttribute('name', 'moon-outline');
             document.documentElement.style.setProperty('--bg-color', '#030303');
             document.documentElement.style.setProperty('--text-color', '#f0f0f0');
             document.documentElement.style.setProperty('--card-bg', '#0a0a0a');
+            document.documentElement.style.setProperty('--input-bg', 'rgba(0, 0, 0, 0.3)');
         }
     });
 

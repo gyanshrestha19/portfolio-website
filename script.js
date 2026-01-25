@@ -36,25 +36,28 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Theme Toggle
-    const themeBtn = document.querySelector('.theme-toggle');
-    themeBtn.addEventListener('click', () => {
-        const icon = themeBtn.querySelector('ion-icon');
-        // Simple toggle for logic demonstration
-        if (icon.getAttribute('name') === 'moon-outline') {
-            icon.setAttribute('name', 'sunny-outline');
-            document.documentElement.style.setProperty('--bg-color', '#e0e0e0');
-            document.documentElement.style.setProperty('--text-color', '#111');
-            document.documentElement.style.setProperty('--card-bg', '#fff');
-            document.documentElement.style.setProperty('--input-bg', 'rgba(255, 255, 255, 0.8)');
-        } else {
-            icon.setAttribute('name', 'moon-outline');
-            document.documentElement.style.setProperty('--bg-color', '#030303');
-            document.documentElement.style.setProperty('--text-color', '#f0f0f0');
-            document.documentElement.style.setProperty('--card-bg', '#0a0a0a');
-            document.documentElement.style.setProperty('--input-bg', 'rgba(0, 0, 0, 0.3)');
-        }
-    });
+    // Theme Toggle Logic
+    const themeSwitch = document.getElementById('theme-switch');
+    const body = document.body;
+
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+        body.classList.add('light-mode');
+    }
+
+    if (themeSwitch) {
+        themeSwitch.addEventListener('click', () => {
+            body.classList.toggle('light-mode');
+
+            // Save preference
+            if (body.classList.contains('light-mode')) {
+                localStorage.setItem('theme', 'light');
+            } else {
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+    }
 
     // Form Submission (Demo)
     const form = document.querySelector('.professional-form');

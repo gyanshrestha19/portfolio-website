@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
 
-
     /* --- Scroll Reveal with Intersection Observer --- */
     const observerOptions = {
         threshold: 0.1,
@@ -35,6 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.style.transform = 'translate(0, 0)';
         });
     });
+
+
 
     // Theme Toggle Logic
     const themeSwitch = document.getElementById('theme-switch');
@@ -122,4 +123,65 @@ document.addEventListener('DOMContentLoaded', () => {
     setupModal('project-logo-trigger', 'logo-modal');
     setupModal('project-poster-trigger', 'poster-modal');
     setupModal('project-web-trigger', 'web-modal');
+
+    // 3D Starfield Background
+    const canvas = document.getElementById('starfield');
+    if (canvas) {
+        const ctx = canvas.getContext('2d');
+        let width, height, stars = [];
+        const STAR_COUNT = 400;
+        const SPEED = 0.05;
+
+        const resize = () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+            initStars();
+        };
+
+        const initStars = () => {
+            stars = [];
+            for (let i = 0; i < STAR_COUNT; i++) {
+                stars.push({
+                    x: Math.random() * width - width / 2,
+                    y: Math.random() * height - height / 2,
+                    z: Math.random() * width,
+                    size: Math.random() * 1.5
+                });
+            }
+        };
+
+        const update = () => {
+            ctx.fillStyle = 'black';
+            ctx.fillRect(0, 0, width, height);
+
+            ctx.translate(width / 2, height / 2);
+
+            for (let i = 0; i < STAR_COUNT; i++) {
+                let s = stars[i];
+                s.z -= SPEED * width;
+
+                if (s.z <= 0) {
+                    s.z = width;
+                    s.x = Math.random() * width - width / 2;
+                    s.y = Math.random() * height - height / 2;
+                }
+
+                const px = s.x * (width / s.z);
+                const py = s.y * (width / s.z);
+                const size = s.size * (width / s.z);
+
+                ctx.fillStyle = 'white';
+                ctx.beginPath();
+                ctx.arc(px, py, size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+
+            ctx.translate(-width / 2, -height / 2);
+            requestAnimationFrame(update);
+        };
+
+        window.addEventListener('resize', resize);
+        resize();
+        update();
+    }
 });

@@ -2,346 +2,1033 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gyan | Graphic Designer & Illustrator</title>
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="htt...ap" rel="stylesheet">
-    <!-- Ionicons for some icons -->
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case File #114 – The Nocturnal Artist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Caveat:wght@400;600;700&family=Libre+Baskerville:ital@0;1&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Extra physical realism — injected inline for specificity */
+
+    /* Paper edge thickness simulation */
+    .paper-thick {
+      box-shadow:
+        2px 0 0 rgba(175, 148, 82, 0.85),
+        0 2px 0 rgba(155, 128, 62, 0.65),
+        -1px 0 0 rgba(230, 205, 155, 0.4),
+        0 -1px 0 rgba(230, 210, 165, 0.3),
+        4px 6px 18px rgba(0, 0, 0, 0.45),
+        8px 16px 40px rgba(0, 0, 0, 0.7),
+        12px 26px 60px rgba(0, 0, 0, 0.4) !important;
+    }
+
+    /* Wax seal decoration */
+    .wax-seal {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 32%, #D44, #8B0000 50%, #5A0000 100%);
+      position: relative;
+      display: inline-block;
+      box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.65), inset 0 2px 4px rgba(255, 150, 150, 0.2), inset 0 -2px 4px rgba(0, 0, 0, 0.4);
+    }
+
+    .wax-seal::before {
+      content: 'G';
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Libre Baskerville', serif;
+      font-size: 22px;
+      font-style: italic;
+      color: rgba(255, 220, 200, 0.7);
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    .wax-seal::after {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      border: 2px solid rgba(139, 0, 0, 0.4);
+      box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Typewriter key impact — slight indentation on specific typed chars */
+    .typed-impact {
+      display: inline;
+      text-shadow: 0.6px 0.6px 0 rgba(0, 0, 0, 0.45), 0 0.3px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    /* Aged paper yellowing on specific elements */
+    .paper-very-aged {
+      background: #C8A855 !important;
+      background-image:
+        radial-gradient(ellipse at 8% 82%, rgba(140, 90, 20, 0.45) 0%, transparent 28%),
+        radial-gradient(ellipse at 90% 18%, rgba(120, 78, 15, 0.35) 0%, transparent 30%),
+        radial-gradient(ellipse at 50% 50%, rgba(180, 135, 55, 0.15) 0%, transparent 45%) !important;
+    }
+
+    /* Shadow cast by pins — directional from top-right light */
+    .pin-shadow-cast {
+      position: absolute;
+      pointer-events: none;
+      z-index: 45;
+      width: 3px;
+      height: 28px;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.35) 0%, transparent 100%);
+      filter: blur(1.5px);
+      transform-origin: top center;
+      transform: rotate(165deg);
+      /* shadow direction from top-right light */
+    }
+
+    /* Tape torn edge highlight */
+    .tape-torn-l::before {
+      border-radius: 0 !important;
+      clip-path: polygon(0 8%, 100% 0%, 100% 100%, 0 92%);
+    }
+
+    .tape-torn-r::after {
+      clip-path: polygon(0 0%, 100% 5%, 100% 95%, 0 100%);
+    }
+
+    /* Worn folder tab */
+    .folder-tab {
+      position: absolute;
+      top: -22px;
+      left: 25px;
+      background: var(--paper-aged);
+      height: 22px;
+      padding: 3px 20px;
+      border-radius: 4px 4px 0 0;
+      font-family: 'Special Elite', serif;
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--ink-faded);
+      box-shadow: -2px -3px 8px rgba(0, 0, 0, 0.4), 2px -2px 5px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-bottom: none;
+    }
+
+    /* Worn rubber band holding documents */
+    .rubber-band {
+      position: absolute;
+      z-index: 55;
+      border: 3px solid rgba(60, 20, 0, 0.6);
+      border-radius: 6px;
+      pointer-events: none;
+      box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.45), inset 0 0 3px rgba(255, 100, 0, 0.15);
+      background: rgba(80, 30, 0, 0.12);
+    }
+
+    /* Ink splatter decoration */
+    .ink-splatter {
+      position: absolute;
+      pointer-events: none;
+      z-index: 10;
+      font-size: 28px;
+      color: rgba(10, 5, 0, 0.08);
+      font-family: serif;
+      transform: rotate(var(--rot, 0deg));
+      filter: blur(0.5px);
+    }
+  </style>
 </head>
 
-<body class="dark-mode">
+<body>
+  <!-- Film grain overlay -->
+  <div class="film-grain"></div>
+  <!-- Heavy cinematic vignette -->
+  <div class="vignette"></div>
 
-
-    <nav class="navbar">
-        <div class="logo">G.</div>
-        <div class="nav-links">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#projects">Works</a>
-            <a href="#contact">Contact</a>
+  <!-- Hanging Tungsten Light — top-right position for dramatic directional lighting -->
+  <div class="light-fixture" id="light-fixture">
+    <div class="light-cord-mount"></div>
+    <div class="light-cord"></div>
+    <button id="bulb-btn" aria-label="Toggle light">
+      <div class="light-bulb bulb-on" id="bulb">
+        <svg class="bulb-glass" viewBox="0 0 58 82" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="grad-on" cx="40%" cy="35%" r="65%" fx="40%" fy="35%">
+              <stop offset="0%" stop-color="#FFFDF0" />
+              <stop offset="14%" stop-color="#FFE880" />
+              <stop offset="38%" stop-color="#FFB830" />
+              <stop offset="68%" stop-color="#E06808" />
+              <stop offset="100%" stop-color="#963800" />
+            </radialGradient>
+            <radialGradient id="grad-off" cx="40%" cy="35%" r="65%">
+              <stop offset="0%" stop-color="#282520" />
+              <stop offset="40%" stop-color="#1C1A18" />
+              <stop offset="100%" stop-color="#0E0D0C" />
+            </radialGradient>
+            <filter id="blur-soft" x="-30%" y="-30%" width="160%" height="160%">
+              <feGaussianBlur stdDeviation="1.6" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+            <filter id="glow-hot" x="-100%" y="-100%" width="300%" height="300%">
+              <feGaussianBlur stdDeviation="9" result="glow" />
+              <feColorMatrix type="matrix" values="1 0 0 0 0  0 0.8 0 0 0  0 0.2 0 0 0  0 0 0 0.6 0" />
+              <feMerge>
+                <feMergeNode />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+            <!-- Realistic glass texture -->
+            <filter id="glass-noise" x="0" y="0" width="100%" height="100%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.15" numOctaves="3" result="noise" />
+              <feDiffuseLighting in="noise" lighting-color="#fff" surfaceScale="2" diffuseConstant="1.2">
+                <feDistantLight elevation="45" azimuth="45" />
+              </feDiffuseLighting>
+              <feComposite in2="SourceGraphic" operator="in" />
+            </filter>
+          </defs>
+          <!-- Outer ambient glow -->
+          <ellipse class="bulb-glow-ring" cx="29" cy="30" rx="32" ry="32" fill="rgba(255,150,30,0.25)"
+            filter="url(#glow-hot)" />
+          <!-- Main glass envelope -->
+          <path class="bulb-envelope"
+            d="M 11 45 C 4 38 1 27 7 17 C 12 8 22 4 29 4 C 36 4 46 8 51 17 C 57 27 54 38 47 45 C 42 51 40 55 38 60 L 20 60 C 18 55 16 51 11 45 Z"
+            fill="url(#grad-on)" />
+          <!-- Detailed Filament Leads -->
+          <g class="bulb-filament">
+            <path d="M 22 60 L 22 45 Q 22 40 25 40" stroke="#C8A040" stroke-width="1.2" opacity="0.8" fill="none" />
+            <path d="M 36 60 L 36 45 Q 36 40 33 40" stroke="#C8A040" stroke-width="1.2" opacity="0.8" fill="none" />
+            <!-- Coiled filament center -->
+            <path class="filament-coil" d="M 25 40 Q 26 42 27 40 Q 28 38 29 40 Q 30 42 31 40 Q 32 38 33 40"
+              stroke="#FFD870" stroke-width="1.8" fill="none" stroke-linecap="round" filter="url(#glow-hot)" />
+          </g>
+          <!-- Glass reflections -->
+          <ellipse class="bulb-highlight" cx="19" cy="18" rx="7" ry="11" fill="rgba(255,255,255,0.3)"
+            transform="rotate(-25,19,18)" />
+          <path class="bulb-highlight" d="M 13 32 Q 10 35 11 42" stroke="rgba(255,255,255,0.15)" stroke-width="2"
+            fill="none" stroke-linecap="round" />
+          <circle class="bulb-highlight" cx="44" cy="28" r="2.5" fill="rgba(255,255,255,0.1)" />
+        </svg>
+        <!-- Threaded Metal Base -->
+        <div class="bulb-base-threaded">
+          <div class="thread"></div>
+          <div class="thread"></div>
+          <div class="thread"></div>
+          <div class="contact-point"></div>
         </div>
-        <div class="theme-switch" id="theme-switch" role="button" aria-label="Toggle Theme">
-            <div class="switch-indicator"></div>
-            <div class="switch-icon sun"><ion-icon name="sunny"></ion-icon></div>
-            <div class="switch-icon moon"><ion-icon name="moon"></ion-icon></div>
-        </div>
-    </nav>
+      </div>
+      <div class="light-halo" id="light-halo"></div>
+      <div class="light-cone" id="light-cone"></div>
+    </button>
+  </div>
 
-    <header class="hero" id="home">
-        <canvas id="starfield"></canvas>
-        <div class="hero-glow"></div>
-        <div class="hero-content center-aligned">
-            <h1 class="headline slide-up">Hi, I'm Gyan</h1>
-            <h3 class="subtitle slide-up">Graphic Designer and Web Development Enthusiast</h3>
+  <!-- Dust particles in light beam -->
+  <div class="particles" id="particles"></div>
 
-            <div class="cta-group slide-up">
-                <a href="#projects" class="btn btn-purple">View My Works <ion-icon
-                        name="arrow-forward-outline"></ion-icon></a>
-                <a href="#" class="btn btn-dark">View My Resume</a>
+  <div id="camera-wrap">
+    <div class="board">
+
+      <!-- ============================================================ -->
+      <!-- HERO — MAIN EVIDENCE BOARD                                  -->
+      <!-- ============================================================ -->
+      <section id="hero">
+        <div class="cork-panel" style="width:100%; padding:75px 65px 90px;">
+          <div class="cork-grain"></div>
+          <div class="tungsten-spot"></div>
+          <!-- Board grid reference marks -->
+          <span class="grid-mark" style="top:14px;left:22px">A1</span>
+          <span class="grid-mark" style="top:14px;right:22px">A8</span>
+          <span class="grid-mark" style="bottom:14px;left:22px">D1</span>
+          <span class="grid-mark" style="bottom:14px;right:22px">D8</span>
+
+          <!-- Central case title document -->
+          <div class="reveal" style="--rot:-1.5deg; text-align:center; margin-bottom:55px; position:relative;">
+            <!-- Three layers of tape holding it -->
+            <div class="tape tape-h"
+              style="position:absolute;top:-13px;left:50%;width:130px;transform:translateX(-50%) rotate(-2.5deg);">
             </div>
-        </div>
-    </header>
+            <div class="tape tape-h"
+              style="position:absolute;top:-13px;left:30%;width:70px;transform:translateX(-50%) rotate(1.5deg);"></div>
+            <div class="tape tape-h"
+              style="position:absolute;bottom:-13px;left:60%;width:90px;transform:translateX(-30%) rotate(2deg);"></div>
 
-    <section id="about" class="about-section">
-        <div class="container">
-            <div class="bento-grid">
-                <!-- Info Box -->
-                <div class="bento-box intro-box reveal">
-                    <h1>
-                        <center>About Me</center>
-                    </h1>
-                    <div class="bio-text">
-                        <p>I don't just design; I craft visual experiences. With a deep passion for <strong>Illustrator,
-                                Photoshop, and InDesign,</strong> I transform abstract ideas into tangible,
-                            pixel-perfect
-                            realities.</p>
-                        <p>I'm a quick learner and collaborate closely with clients to create efficient,
-                            scalable, and user-friendly solutions that solve real-world problems. Let's work
-                            together to bring ideas to life!</p>
-                    </div>
-                </div>
-
-                <!-- Profile Box -->
-                <div class="bento-box profile-box reveal">
-                    <div class="profile-container">
-                        <div class="placeholder-img"></div>
-                        <div class="shooting-star"></div>
-                        <div class="shooting-star"></div>
-                    </div>
-                </div>
-
-                <!-- Stats & Quote Group -->
-                <div class="bento-group-bottom-left reveal">
-                    <div class="stats-row">
-                        <div class="bento-box stat-box">
-                            <span class="stat-number">5+</span>
-                            <span class="stat-label">Completed Projects</span>
-                        </div>
-                        <div class="bento-box stat-box">
-                            <span class="stat-number">2+</span>
-                            <span class="stat-label">Years of Experience</span>
-                        </div>
-                    </div>
-                    <div class="bento-box quote-box">
-                        <h3>Design enthusiast with a passion for development.</h3>
-                    </div>
-                </div>
-
-                <!-- Skills Box -->
-                <div class="bento-box skills-box reveal">
-                    <h3>My Skills</h3>
-                    <div class="skills-icons">
-                        <div class="skill-icon" title="Photoshop">
-                            <img src="images/photoshop.png" alt="Ps">
-                        </div>
-                        <div class="skill-icon" title="Illustrator">
-                            <img src="images/illustrator.png" alt="Ai">
-                        </div>
-                        <div class="skill-icon" title="InDesign">
-                            <img src="images/indesign.png" alt="InDesign">
-                        </div>
-                        <div class="skill-icon" title="Figma">
-                            <img src="images/figma.png" alt="Figma">
-                        </div>
-                        <div class="skill-icon" title="HTML">
-                            <img src="images/html.png" alt="HTML">
-                        </div>
-                        <div class="skill-icon" title="CSS">
-                            <img src="images/css.png" alt="CSS">
-                        </div>
-                        <div class="skill-icon" title="Js">
-                            <img src="images/js.png" alt="JS">
-                        </div>
-                    </div>
-                </div>
+            <div class="hero-title-paper paper-folded paper-warped paper-crinkled paper-stained paper-thick"
+              style="position:relative;">
+              <div class="paper-curl paper-curl--tr"></div>
+              <div class="paper-curl paper-curl--bl"></div>
+              <!-- Wax seal in corner -->
+              <div class="wax-seal" style="position:absolute;bottom:18px;left:18px;transform:rotate(-8deg);"></div>
+              <div class="coffee-ring" style="bottom:5px;left:55px;opacity:0.9;"></div>
+              <div class="coffee-ring coffee-ring--sm" style="top:15px;right:60px;opacity:0.7;"></div>
+              <!-- Confidential stamp — imperfect impression -->
+              <span class="stamp stamp-red"
+                style="position:absolute;top:22px;right:22px;font-size:10px;transform:rotate(-12deg);">CONFIDENTIAL</span>
+              <!-- Fingerprint on document -->
+              <div class="fingerprint-mark" style="bottom:20px;right:25px;opacity:0.07;"></div>
+              <span class="hero-title">PORTFOLIO<br>2025</span>
+              <span class="hero-subtitle">CASE FILE #114 — THE NOCTURNAL ARTIST</span>
+              <div style="margin-top:18px;">
+                <span class="stamp stamp-blue" style="transform:rotate(5deg);font-size:9px;">ACTIVE INVESTIGATION</span>
+              </div>
             </div>
-        </div>
-    </section>
+            <div class="pin pin-red" style="top:-9px;left:calc(50% - 65px);"></div>
+            <div class="pin pin-gold" style="top:-9px;right:calc(50% - 65px);"></div>
+          </div>
 
-    <!-- Skills section removed and merged into About Me -->
+          <!-- Three-column hero layout -->
+          <div class="hero-center">
 
-    <section id="projects" class="projects-section">
-        <div class="container">
-            <h2 class="section-title reveal">
-                <center>Works</center>
-            </h2>
-            <div class="projects-grid">
-                <!-- Project 1: Logo Design (Triggers Modal) -->
-                <div class="project-card large reveal" id="project-logo-trigger">
-                    <div class="card-image">
-                        <!-- Placeholder color/image -->
-                        <div class="placeholder-project p1"></div>
-                    </div>
-                    <div class="card-info">
-                        <h3>Logo Design</h3>
-                        <button class="project-link-btn" aria-label="Open Project">
-                            <ion-icon name="arrow-forward-outline"></ion-icon>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Project 2: Poster Design (Triggers Modal) -->
-                <div class="project-card large reveal" id="project-poster-trigger">
-                    <div class="card-image">
-                        <div class="placeholder-project p2"></div>
-                    </div>
-                    <div class="card-info">
-                        <h3>Poster Design</h3>
-                        <button class="project-link-btn" aria-label="Open Project">
-                            <ion-icon name="arrow-forward-outline"></ion-icon>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Project 3: Coding (New) -->
-                <div class="project-card large reveal" id="project-web-trigger">
-                    <div class="card-image">
-                        <div class="placeholder-project p3"></div>
-                    </div>
-                    <div class="card-info">
-                        <h3>Web Development</h3>
-                        <button class="project-link-btn" aria-label="Open Project">
-                            <ion-icon name="arrow-forward-outline"></ion-icon>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Modal Overlay for Logo Project -->
-    <div class="project-modal" id="logo-modal">
-        <div class="modal-backdrop"></div>
-        <div class="modal-content">
-            <button class="close-modal" aria-label="Close Modal">
-                <ion-icon name="close-outline"></ion-icon>
-            </button>
-
-            <div class="modal-header">
-                <h2>Captivating Logos</h2>
-                <p>Explore a collection of logos that tell unique brand stories.</p>
+            <!-- Subject overview — ruled paper card -->
+            <div class="reveal" style="--rot:2.5deg;flex:1;min-width:200px;max-width:245px; position:relative;">
+              <div class="tape tape-h"
+                style="position:absolute;top:-13px;left:50%;transform:translateX(-50%);width:85px;"></div>
+              <div class="pin pin-red" style="top:-9px;left:28px;"></div>
+              <!-- Stack of papers behind -->
+              <div class="paper-stack-behind" style="transform:rotate(-4deg) translate(-4px,5px);"></div>
+              <div class="paper-stack-behind"
+                style="transform:rotate(2deg) translate(5px,4px);background:var(--paper);"></div>
+              <div class="paper ruled lined-paper paper-folded paper-stained paper-warped paper-crinkled"
+                style="transform:rotate(2.5deg);">
+                <div class="paper-shadow-cast"></div>
+                <div class="fingerprint-mark" style="top:20px;right:10px;opacity:0.05;"></div>
+                <p
+                  style="font-family:'Special Elite',serif;font-size:13px;letter-spacing:2px;color:#2A1810;margin-bottom:14px;border-bottom:2px solid rgba(0,0,0,0.18);padding-bottom:8px;">
+                  SUBJECT OVERVIEW</p>
+                <p class="typed" style="font-size:12px;line-height:28px;">Name: <span class="underline-typed">Gyan
+                    Shrestha</span></p>
+                <p class="typed" style="font-size:12px;line-height:28px;">Status: <span
+                    style="color:#7A0E0E;font-weight:bold;font-family:'Special Elite',serif;">ACTIVE</span></p>
+                <p class="typed" style="font-size:12px;line-height:28px;">Origin: <span
+                    class="underline-typed">Nepal</span></p>
+                <p class="typed" style="font-size:12px;line-height:28px;">Field: <span class="underline-typed">Graphic
+                    Designer</span></p>
+                <p class="typed" style="font-size:12px;line-height:28px;">Alias: <span class="underline-typed">The
+                    Artist</span></p>
+                <p class="handwritten" style="font-size:20px;color:#7A0E0E;margin-top:18px;transform:rotate(-2.5deg);">⟶
+                  Dangerous talent</p>
+                <div class="ink-annotation" style="bottom:12px;right:12px;transform:rotate(10deg);">see p.7</div>
+                <!-- Marker highlight over name -->
+                <div class="marker-highlight"
+                  style="position:absolute;top:65px;left:8px;width:140px;height:18px;transform:rotate(-0.8deg);"></div>
+              </div>
             </div>
 
-            <div class="logos-gallery">
-                <!-- Logo Card 1 -->
-                <div class="logo-card">
-                    <img src="images/E-Shop.jpg" alt="E-Shop Logo">
-                    <div class="logo-info">
-                        <h4>E-Shop Logo</h4>
-                        <span>Online Shopping</span>
-                    </div>
+            <!-- Subject photograph -->
+            <div class="reveal" style="position:relative;flex-shrink:0;">
+              <div class="pin pin-red" style="top:-9px;left:50%;transform:translateX(-50%);"></div>
+              <div class="profile-frame">
+                <div class="photo-emulsion"></div>
+                <div class="profile-silhouette">
+                  <img src="images/myself.jpg" alt="Subject photograph">
                 </div>
-                <!-- Logo Card 2 -->
-                <div class="logo-card">
-                    <img src="images/Headphone Logo.jpg" alt="Headphone logo">
-                    <div class="logo-info">
-                        <h4>Headphone Logo</h4>
-                        <span>Audio Devices</span>
-                    </div>
+                <div class="photo-gloss-layer"></div>
+                <div style="position:absolute;bottom:12px;left:0;right:0;text-align:center;z-index:3;">
+                  <span class="evidence-tag">SUBJECT PHOTO</span>
                 </div>
-                <!-- Logo Card 3 -->
-                <div class="logo-card">
-                    <img src="images/Xenon.jpg" alt="Logo 3">
-                </div>
+              </div>
+              <!-- Three tapes on photo frame -->
+              <div class="tape tape-h"
+                style="position:absolute;top:-13px;left:50%;width:65px;transform:translateX(-50%) rotate(-4deg);"></div>
+              <div class="pin pin-gold" style="bottom:-9px;left:22px;"></div>
+              <div class="pin pin-gold" style="bottom:-9px;right:22px;"></div>
             </div>
+
+            <!-- Case summary -->
+            <div class="reveal" style="--rot:-2.5deg;flex:1;min-width:200px;max-width:245px;position:relative;">
+              <div class="tape tape-h"
+                style="position:absolute;top:-13px;left:50%;width:85px;transform:translateX(-40%) rotate(3.5deg);">
+              </div>
+              <div class="pin pin-blue" style="top:-9px;right:42px;"></div>
+              <div class="paper-stack-behind" style="transform:rotate(3.5deg) translate(5px,5px);"></div>
+              <div class="paper paper-aged paper-folded paper-stained paper-warped paper-crinkled"
+                style="transform:rotate(-2.5deg);">
+                <div class="paper-shadow-cast"></div>
+                <div class="paper-curl paper-curl--tr"></div>
+                <p
+                  style="font-family:'Special Elite',serif;font-size:13px;letter-spacing:2px;color:#2A1810;margin-bottom:14px;border-bottom:2px solid rgba(0,0,0,0.18);padding-bottom:8px;">
+                  CASE SUMMARY</p>
+                <p class="typed" style="font-size:11px;line-height:1.95;color:#2A1810;">A creative operative with
+                  exceptional skills in visual design and digital artistry. Subject has been observed producing
+                  remarkable works under cover of night.</p>
+                <br>
+                <p class="handwritten" style="font-size:17px;color:#7A0E0E;transform:rotate(1.5deg);">"Masterful.
+                  Unpredictable."</p>
+                <p class="typed" style="font-size:10px;color:#7A5C14;margin-top:8px;">— Investigator's field note</p>
+                <div style="margin-top:18px;"><span class="stamp stamp-red"
+                    style="font-size:9px;transform:rotate(-5deg);">VERIFIED</span></div>
+                <div class="coffee-ring coffee-ring--sm" style="bottom:-18px;right:-12px;"></div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="case-number">CASE #114 · BOARD A · SECTOR 1</div>
         </div>
+        <div class="section-label">continue scrolling · classified files below</div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- ABOUT — PERSONAL DOSSIER                                    -->
+      <!-- ============================================================ -->
+      <section id="about" style="padding:20px 0 70px;">
+        <div class="cork-panel">
+          <div class="cork-grain"></div>
+          <div class="reveal" style="--rot:0deg;margin-bottom:45px;position:relative;">
+            <div class="pin pin-red" style="top:-9px;left:50%;transform:translateX(-50%);"></div>
+            <div class="tape tape-h"
+              style="position:absolute;top:-13px;left:50%;width:110px;transform:translateX(-50%) rotate(-1.5deg);">
+            </div>
+            <div
+              style="background:#0F2850;color:#EDE5C5;padding:13px 32px;text-align:center;display:inline-block;width:100%;box-shadow:3px 4px 14px rgba(0,0,0,0.65),0 2px 0 rgba(0,0,0,0.5);">
+              <p style="font-family:'Special Elite',serif;font-size:14px;letter-spacing:6px;text-transform:uppercase;">◈
+                SUBJECT DOSSIER ◈</p>
+            </div>
+          </div>
+
+          <div class="subject-file" style="max-width:720px;margin:0 auto;position:relative;">
+            <!-- Location polaroid pinned to top-right -->
+            <div class="polaroid reveal"
+              style="--rot:9deg;width:165px;position:absolute;top:-25px;right:-25px;transform:rotate(9deg);z-index:20;">
+              <div class="polaroid-img">
+                <img src="images/map.png" alt="Location preview" class="clickable-preview"
+                  style="width:100%; height:152px; object-fit:cover;">
+              </div>
+              <div class="polaroid-gloss"></div>
+              <div class="polaroid-caption">Kathmandu / Helsinki</div>
+              <div class="pin pin-white" style="top:-9px;left:50%;transform:translateX(-50%);"></div>
+            </div>
+
+            <!-- Main dossier document -->
+            <div class="reveal" style="position:relative;">
+              <div class="tape tape-h"
+                style="position:absolute;top:-13px;left:42px;width:110px;transform:rotate(-2.5deg);"></div>
+              <div class="tape tape-h"
+                style="position:absolute;top:-13px;right:42px;width:85px;transform:rotate(2deg);"></div>
+              <div class="pin pin-red" style="top:-9px;left:52px;"></div>
+              <div class="pin pin-gold" style="top:-9px;right:65px;"></div>
+
+              <!-- Folder tab -->
+              <div class="folder-tab">PERSONAL FILE — Gyan Shrestha</div>
+
+              <div class="paper paper-aged paper-warped paper-stained paper-folded paper-crinkled"
+                style="transform:rotate(-0.6deg);">
+                <div class="paper-curl paper-curl--tr"></div>
+                <div class="fingerprint-mark" style="top:32px;left:16px;opacity:0.07;"></div>
+                <div class="fingerprint-mark" style="bottom:22px;right:22px;opacity:0.05;transform:rotate(48deg);">
+                </div>
+
+                <!-- Ink splatter decorations -->
+                <div class="ink-splatter" style="top:45px;left:12px;--rot:-15deg;">·</div>
+                <div class="ink-splatter" style="bottom:80px;left:8px;--rot:22deg;font-size:18px;">∴</div>
+
+                <div class="case-header">SUBJECT FILE: Gyan Shrestha | REF: ART-114-B | STATUS: UNDER OBSERVATION</div>
+                <div style="padding:22px;position:relative;">
+                  <div class="passport-photo">
+                    <div class="photo-placeholder" style="height:100%;width:100%;">
+                      <span style="font-size:30px;opacity:0.28;">👤</span>
+                      <span style="font-size:9px;letter-spacing:2px;">PHOTO</span>
+                    </div>
+                  </div>
+
+
+                  <p
+                    style="font-family:'Special Elite',serif;font-size:11px;letter-spacing:3px;color:#2A1810;margin-bottom:18px;">
+                    BIOGRAPHICAL NOTES</p>
+                  <p class="typed" style="font-size:12px;line-height:1.95;color:#1A120A;margin-bottom:18px;">The
+                    subject, known professionally as <strong>The Nocturnal Artist</strong>, operates primarily during
+                    late hours — a pattern consistent with subjects of extraordinary creative drive. First identified in
+                    <span class="redacted">███████</span>, their work quickly drew attention from agencies monitoring
+                    the digital art sector.
+                  </p>
+                  <p class="typed" style="font-size:12px;line-height:1.95;color:#1A120A;margin-bottom:18px;">
+                    Specializing in interface design, interactive experiences, and visual storytelling, the subject
+                    demonstrates an unusual capacity to merge aesthetic elegance with technical precision. Informants
+                    describe the subject as "obsessively detail-oriented" and <span class="highlight-red">"possessed by
+                      an unusual vision."</span></p>
+                  <p class="typed" style="font-size:12px;line-height:1.95;color:#1A120A;">Current whereabouts: <span
+                      class="underline-typed">Remote studio, undisclosed location.</span><br>Threat level: <span
+                      style="color:#7A0E0E;font-weight:bold;font-family:'Special Elite',serif;letter-spacing:1px;">EXTREMELY
+                      GIFTED</span></p>
+                  <!-- Handwritten sticky note pinned at angle -->
+                  <p class="handwritten"
+                    style="position:absolute;bottom:65px;right:18px;font-size:21px;color:#7A0E0E;transform:rotate(-13deg);background:rgba(250,245,195,0.92);padding:9px 13px;border:1px solid rgba(0,0,0,0.12);box-shadow:3px 5px 12px rgba(0,0,0,0.4);">
+                    Check<br>aliases!</p>
+                  <div class="ink-bleed-line" style="margin:14px 0;"></div>
+                  <div style="margin-top:22px;display:flex;gap:18px;align-items:center;flex-wrap:wrap;">
+                    <span class="stamp stamp-red">ACTIVE</span>
+                    <span class="stamp stamp-blue" style="transform:rotate(6deg);">CLASSIFIED</span>
+                    <span class="evidence-tag" style="margin-left:auto;">EXHIBIT A-1</span>
+                  </div>
+                </div>
+                <div class="coffee-ring coffee-ring--sm" style="top:42px;left:145px;"></div>
+              </div>
+            </div>
+
+            <!-- Sticky note annotation -->
+            <div class="sticky sticky-yellow reveal"
+              style="--rot:5.5deg;width:185px;transform:rotate(5.5deg);margin-top:22px;margin-left:auto;position:relative;">
+              <div class="sticky-texture"></div>
+              <div class="pin pin-gold" style="top:-9px;left:50%;transform:translateX(-50%);"></div>
+              <p style="font-size:19px;font-weight:600;line-height:1.3;">Cross-ref with<br>design crimes<br>database!!
+              </p>
+              <p style="font-size:14px;margin-top:10px;color:#555;">— Agent R.</p>
+              <div class="sticky-fold"></div>
+            </div>
+          </div>
+          <div class="case-number">CASE #114 · BOARD B · SECTOR 2</div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- SKILLS — INVESTIGATION NOTES                                 -->
+      <!-- ============================================================ -->
+      <section id="skills" style="padding:20px 0 70px;">
+        <div class="cork-panel">
+          <div class="cork-grain"></div>
+          <div class="tungsten-spot" style="left:-30px;right:auto;"></div>
+
+          <div class="reveal" style="--rot:0deg;margin-bottom:45px;position:relative;text-align:center;">
+            <div class="pin pin-red" style="top:-9px;left:50%;transform:translateX(-50%);"></div>
+            <div class="tape tape-h"
+              style="position:absolute;top:-13px;left:50%;width:130px;transform:translateX(-50%);"></div>
+            <div
+              style="background:#2E1208;color:#EDE5C5;padding:13px 32px;display:inline-block;box-shadow:3px 4px 14px rgba(0,0,0,0.65);">
+              <p style="font-family:'Special Elite',serif;font-size:14px;letter-spacing:6px;">◈ EVIDENCE CATALOG —
+                SKILLS ◈</p>
+            </div>
+          </div>
+
+          <div class="skills-grid" style="position:relative;">
+
+            <!-- Design skills card -->
+            <div class="reveal" style="--rot:-2.5deg;position:relative;">
+              <div class="pin pin-red" style="top:-9px;left:32px;"></div>
+              <div class="tape tape-h"
+                style="position:absolute;top:-13px;right:22px;width:75px;transform:rotate(3.5deg);"></div>
+              <div class="paper-stack-behind" style="transform:rotate(-4deg) translate(-3px,5px);"></div>
+              <div class="paper" style="transform:rotate(-2.5deg);">
+                <div class="paper-shadow-cast"></div>
+                <div class="case-header">DESIGN SKILLS</div>
+                <div style="padding:18px;">
+                  <div class="marker-highlight"
+                    style="position:absolute;top:54px;left:8px;width:90px;height:17px;transform:rotate(-1.2deg);"></div>
+                  <div class="sticky sticky-yellow sticky--lifted"
+                    style="margin-bottom:14px;transform:rotate(-1.2deg);">
+                    <div class="sticky-texture"></div>
+                    <p style="font-size:17px;font-weight:600;">UI / UX Design</p>
+                    <p style="font-size:13px;margin-top:5px;color:#444;">Interface architecture, wireframing,
+                      prototyping</p>
+                    <div class="skill-bar" style="width:90%;"></div>
+                    <div class="sticky-fold"></div>
+                  </div>
+                  <div class="sticky sticky-pink sticky--lifted" style="margin-bottom:14px;transform:rotate(1.2deg);">
+                    <div class="sticky-texture"></div>
+                    <p style="font-size:17px;font-weight:600;">Typography</p>
+                    <p style="font-size:13px;margin-top:5px;color:#444;">Type hierarchy, font pairing, editorial layout
+                    </p>
+                    <div class="skill-bar" style="width:80%;"></div>
+                    <div class="sticky-fold"></div>
+                  </div>
+                  <div class="sticky sticky-blue sticky--lifted" style="transform:rotate(-0.6deg);">
+                    <div class="sticky-texture"></div>
+                    <p style="font-size:17px;font-weight:600;">Visual Identity</p>
+                    <p style="font-size:13px;margin-top:5px;color:#444;">Branding systems, color theory, iconography</p>
+                    <div class="skill-bar" style="width:95%;"></div>
+                    <div class="sticky-fold"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Technical capabilities — ruled paper -->
+            <div class="reveal" style="--rot:1.8deg;position:relative;margin-top:45px;">
+              <div class="pin pin-gold" style="top:-9px;left:50%;transform:translateX(-50%);"></div>
+              <div class="paper lined-paper paper-stained" style="transform:rotate(1.8deg);">
+                <div class="paper-shadow-cast"></div>
+                <div class="fingerprint-mark" style="top:50px;right:15px;opacity:0.04;"></div>
+                <div style="padding:18px 18px 18px 58px;">
+                  <p
+                    style="font-family:'Special Elite',serif;font-size:13px;letter-spacing:3px;margin-bottom:18px;border-bottom:2px solid rgba(0,0,0,0.18);padding-bottom:8px;">
+                    <span class="highlight-red">TECHNICAL CAPABILITIES</span>
+                  </p>
+                  <p class="typed typed--inked" style="font-size:11px;line-height:28px;">→ HTML / CSS / JavaScript</p>
+                  <p class="typed typed--inked" style="font-size:11px;line-height:28px;">→ Adobe Illustrator</p>
+                  <p class="typed typed--inked" style="font-size:11px;line-height:28px;">→ Adobe Photoshop</p>
+                  <p class="typed typed--inked" style="font-size:11px;line-height:28px;">→ Figma</p>
+                  <p class="typed typed--inked" style="font-size:11px;line-height:28px;">→ InDesign</p>
+                  <p class="typed typed--inked" style="font-size:11px;line-height:28px;">→ Canva</p>
+                  <p class="handwritten" style="font-size:21px;color:#7A0E0E;margin-top:14px;transform:rotate(-3deg);">
+                    Exceptionally versatile</p>
+                  <div class="red-circle-annotation"></div>
+                  <span class="stamp stamp-blue"
+                    style="margin-top:14px;display:inline-block;font-size:9px;">CONFIRMED</span>
+                  <div class="coffee-ring coffee-ring--sm" style="bottom:-22px;right:-12px;opacity:0.8;"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Creative arsenal card -->
+            <div class="reveal" style="--rot:-1.2deg;position:relative;">
+              <div class="pin pin-blue" style="top:-9px;right:42px;"></div>
+              <div class="tape tape-h"
+                style="position:absolute;top:-13px;left:32px;width:95px;transform:rotate(-2.2deg);"></div>
+              <div class="paper paper-aged paper-stained" style="transform:rotate(-1.2deg);">
+                <div class="paper-shadow-cast"></div>
+                <div class="paper-curl paper-curl--tr"></div>
+                <div class="case-header">CREATIVE ARSENAL</div>
+                <div style="padding:18px;">
+                  <p
+                    style="font-family:'Special Elite',serif;font-size:11px;letter-spacing:2px;color:#2A1810;margin-bottom:14px;">
+                    DOCUMENTED SPECIALIZATIONS:</p>
+                  <div style="display:flex;flex-wrap:wrap;gap:9px;margin-bottom:18px;">
+                    <span
+                      style="background:#2E1208;color:#EDE5C5;padding:4px 11px;font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:1px;box-shadow:2px 3px 6px rgba(0,0,0,0.5);">Motion
+                      Design</span>
+                    <span
+                      style="background:#2E1208;color:#EDE5C5;padding:4px 11px;font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:1px;box-shadow:2px 3px 6px rgba(0,0,0,0.5);">3D
+                      Visualization</span>
+                    <span
+                      style="background:#0F2850;color:#EDE5C5;padding:4px 11px;font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:1px;box-shadow:2px 3px 6px rgba(0,0,0,0.5);">Illustration</span>
+                    <span
+                      style="background:#0F2850;color:#EDE5C5;padding:4px 11px;font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:1px;box-shadow:2px 3px 6px rgba(0,0,0,0.5);">Storytelling</span>
+                    <span
+                      style="background:#7A0E0E;color:#EDE5C5;padding:4px 11px;font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:1px;box-shadow:2px 3px 6px rgba(0,0,0,0.5);">Photography</span>
+                    <span
+                      style="background:#7A0E0E;color:#EDE5C5;padding:4px 11px;font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:1px;box-shadow:2px 3px 6px rgba(0,0,0,0.5);">Video
+                      Editing</span>
+                  </div>
+                  <div class="sticky sticky-green sticky--lifted" style="transform:rotate(-2.2deg);">
+                    <div class="sticky-texture"></div>
+                    <p style="font-size:17px;font-weight:600;line-height:1.4;">"A rare combination<br>of
+                      right-brain<br>and left-brain"</p>
+                    <p style="font-size:13px;margin-top:5px;color:#444;">— Psych profile, 2026</p>
+                    <div class="sticky-fold"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="case-number">CASE #114 · BOARD C · SECTOR 3</div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- EDUCATION — ARCHIVED OFFICIAL DOCUMENTS                     -->
+      <!-- ============================================================ -->
+      <section id="education" style="padding:20px 0 70px;">
+        <div class="cork-panel">
+          <div class="cork-grain"></div>
+          <div class="reveal" style="margin-bottom:45px;position:relative;text-align:center;">
+            <div class="pin pin-gold" style="top:-9px;left:50%;transform:translateX(-50%);"></div>
+            <div class="tape tape-v"
+              style="position:absolute;top:-22px;left:50%;height:65px;transform:translateX(-50%);width:26px;"></div>
+            <div
+              style="background:#1E2E3E;color:#ECE5C5;padding:13px 32px;display:inline-block;box-shadow:3px 4px 14px rgba(0,0,0,0.65);">
+              <p style="font-family:'Special Elite',serif;font-size:14px;letter-spacing:6px;">◈ ARCHIVE — ACADEMIC
+                RECORDS ◈</p>
+            </div>
+          </div>
+
+          <div class="binder-clip binder-clip--tl"></div>
+          <div class="binder-clip binder-clip--tr"></div>
+
+          <div class="education-grid"
+            style="display:grid;grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));gap:50px;padding:22px;">
+
+            <!-- High school record -->
+            <div class="reveal" style="--rot:-2deg;position:relative;">
+              <div class="pin pin-red" style="top:-7px;left:22px;"></div>
+              <div class="paper-stack-behind" style="transform:rotate(-3.5deg) translate(-4px,5px);"></div>
+              <div class="paper-stack-behind"
+                style="transform:rotate(2deg) translate(5px,4px);background:var(--paper);"></div>
+              <div class="paper paper-aged paper-stacked paper-warped paper-folded paper-crinkled"
+                style="transform:rotate(-2deg);padding:27px;position:relative;">
+                <div class="paper-curl paper-curl--tr"></div>
+                <div class="file-code">EDU-001 / REF-23</div>
+                <div class="binder-holes"></div>
+                <div style="border:1.5px solid rgba(0,0,0,0.12);padding:17px;position:relative;">
+                  <div class="stamp stamp-blue"
+                    style="position:absolute;top:-12px;right:-12px;transform:rotate(16deg);font-size:10px;">ACCREDITED
+                  </div>
+                  <p style="font-family:'Libre Baskerville',serif;font-size:19px;font-weight:700;margin-bottom:12px;">
+                    Higher Secondary Education (NEB)</p>
+                  <p class="handwritten" style="font-size:23px;color:#0F2850;margin-bottom:6px;">V.S. Niketan High
+                    School</p>
+                  <p style="font-family:'Courier Prime',monospace;font-size:12px;color:#5A4A28;">TERM: 2023 — 2025</p>
+                  <div class="ink-underline" style="margin:12px 0;"></div>
+                  <div style="margin-top:17px;padding-top:12px;border-top:1px dashed rgba(0,0,0,0.22);">
+                    <p style="font-size:13px;line-height:1.7;font-family:'Courier Prime',monospace;">Kathmandu, Nepal
+                    </p>
+                  </div>
+                  <div class="ink-annotation" style="bottom:12px;right:12px;">✓ Completed</div>
+                </div>
+                <div class="coffee-ring coffee-ring--sm" style="top:-12px;right:-7px;"></div>
+                <div class="fingerprint-mark" style="bottom:25px;left:18px;opacity:0.05;"></div>
+              </div>
+            </div>
+
+            <!-- University record -->
+            <div class="reveal" style="--rot:1.2deg;position:relative;">
+              <div class="pin pin-blue" style="top:-7px;left:22px;"></div>
+              <div class="paper-stack-behind" style="transform:rotate(3.5deg) translate(5px,5px);"></div>
+              <div class="paper-stack-behind"
+                style="transform:rotate(-1.5deg) translate(-3px,4px);background:var(--paper);"></div>
+              <div class="paper paper-aged paper-stacked paper-warped paper-folded paper-crinkled"
+                style="transform:rotate(1.2deg);padding:27px;position:relative;">
+                <div class="paper-curl paper-curl--bl"></div>
+                <div class="file-code">EDU-002 / REF-30</div>
+                <div class="binder-holes"></div>
+                <div style="border:1.5px solid rgba(0,0,0,0.12);padding:17px;position:relative;">
+                  <div class="stamp stamp-blue"
+                    style="position:absolute;top:-12px;right:-12px;transform:rotate(-9deg);font-size:10px;">ACCREDITED
+                  </div>
+                  <p style="font-family:'Libre Baskerville',serif;font-size:19px;font-weight:700;margin-bottom:12px;">
+                    Bachelor of Engineering in Information Technology</p>
+                  <p class="handwritten" style="font-size:23px;color:#0F2850;margin-bottom:6px;">Metropolia University
+                    of Applied Sciences</p>
+                  <p style="font-family:'Courier Prime',monospace;font-size:12px;color:#5A4A28;">TERM: Present — 2030
+                  </p>
+                  <div class="ink-underline" style="margin:12px 0;"></div>
+                  <div style="margin-top:17px;padding-top:12px;border-top:1px dashed rgba(0,0,0,0.22);">
+                    <p style="font-size:13px;line-height:1.7;font-family:'Courier Prime',monospace;">Helsinki, Finland
+                    </p>
+                  </div>
+                  <div class="ink-annotation" style="bottom:12px;right:12px;">ongoing →</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="file-reference-strip">
+            <span>ARCHIVE SECTION · BACKGROUND CHECK COMPLETE · CLEARANCE LEVEL 4</span>
+          </div>
+          <div class="case-number">ARCHIVE FILE #ED-99 // BACKGROUND CHECK</div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- PROJECTS — PINNED PHOTOGRAPHIC EVIDENCE                     -->
+      <!-- ============================================================ -->
+      <section id="projects" style="padding:20px 0 70px;">
+        <div class="cork-panel">
+          <div class="cork-grain"></div>
+          <div class="depth-dust"></div>
+
+          <div class="reveal" style="margin-bottom:45px;position:relative;text-align:center;">
+            <div class="pin pin-red" style="top:-9px;left:50%;transform:translateX(-50%);"></div>
+            <div class="tape tape-h"
+              style="position:absolute;top:-13px;left:50%;width:150px;transform:translateX(-50%) rotate(1.2deg);"></div>
+            <div
+              style="background:#7A0E0E;color:#EDE5C5;padding:13px 32px;display:inline-block;box-shadow:3px 4px 14px rgba(0,0,0,0.65);">
+              <p style="font-family:'Special Elite',serif;font-size:14px;letter-spacing:6px;">◈ CASE FILES — WORKS ◈</p>
+            </div>
+          </div>
+
+          <div class="projects-grid">
+
+            <!-- Project 1 -->
+            <div class="project-file reveal" style="--rot:-2.2deg;position:relative;">
+              <div class="pin pin-red" style="top:-9px;left:50%;transform:translateX(-50%);"></div>
+              <div class="tape tape-h"
+                style="position:absolute;top:-13px;left:22%;width:85px;transform:rotate(-3.5deg);"></div>
+              <div class="polaroid depth-far"
+                style="transform:rotate(-4.5deg);position:absolute;top:-32px;right:-22px;width:145px;z-index:20;">
+                <div class="polaroid-img">
+                  <img src="images/cr7.png" alt="CR7 preview" class="clickable-preview"
+                    style="width:100%; height:132px; object-fit:cover;">
+                </div>
+                <div class="polaroid-gloss"></div>
+                <div class="pin pin-white" style="top:-9px;left:50%;transform:translateX(-50%);"></div>
+              </div>
+              <div class="paper paper-aged paper-folded paper-warped paper-stained"
+                style="transform:rotate(-2.2deg);padding:27px;border-left:14px solid #4A3020;">
+                <div class="paper-curl paper-curl--tr"></div>
+                <div class="paper-shadow-cast"></div>
+                <span class="date-stamp" style="position:absolute;top:12px;right:12px;">JULY 2024</span>
+                <div class="case-header">CASE: "Cristiano Ronaldo" — REF: PRJ-001</div>
+                <div style="padding:22px;">
+                  <p style="font-family:'Special Elite',serif;font-size:19px;margin-bottom:9px;">Cristiano Ronaldo</p>
+                  <p class="typed" style="font-size:11px;color:#7A5C14;margin-bottom:14px;letter-spacing:1px;">GRAPHIC
+                    DESIGN · 2024</p>
+                  <p class="typed" style="font-size:11px;line-height:1.95;color:#1A120A;margin-bottom:18px;">A cinematic
+                    sports poster celebrating legacy, power, and elite performance. The composition places Cristiano
+                    Ronaldo at
+                    the center as a heroic figure, enhanced by dynamic red and blue light trails to symbolize motion and
+                    intensity.</p>
+                  <div style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:18px;">
+                    <span
+                      style="border:1px solid rgba(0,0,0,0.32);padding:2px 9px;font-size:10px;font-family:'Courier Prime',monospace;box-shadow:1px 2px 4px rgba(0,0,0,0.25);">Adobe
+                      Photoshop</span>
+                    <span
+                      style="border:1px solid rgba(0,0,0,0.32);padding:2px 9px;font-size:10px;font-family:'Courier Prime',monospace;box-shadow:1px 2px 4px rgba(0,0,0,0.25);">Adobe
+                      Illustrator</span>
+                  </div>
+                  <p class="handwritten" style="font-size:19px;color:#7A0E0E;transform:rotate(-1.2deg);">"Best work of
+                    the year"</p>
+                  <span class="stamp stamp-red" style="margin-top:14px;display:inline-block;">CASE CLOSED</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-file reveal" style="--rot:2.8deg;position:relative;margin-top:45px;">
+              <div class="pin pin-gold" style="top:-9px;left:32px;"></div>
+              <div class="tape tape-h"
+                style="position:absolute;top:-13px;right:22%;width:105px;transform:rotate(2.2deg);"></div>
+              <div class="polaroid depth-far"
+                style="transform:rotate(6.5deg);position:absolute;top:-22px;left:-28px;width:135px;z-index:20;">
+                <div class="polaroid-img">
+                  <img src="images/icc.png" alt="ICC t20 preview" class="clickable-preview"
+                    style="width:100%; height:122px; object-fit:cover;">
+                </div>
+                <div class="polaroid-gloss"></div>
+                <div class="pin pin-red" style="top:-9px;right:22px;"></div>
+              </div>
+              <div class="paper paper-aged paper-stained" style="transform:rotate(2.8deg);">
+                <div class="paper-shadow-cast"></div>
+                <div class="case-header">CASE: ECHO CHAMBER — REF: PRJ-002</div>
+                <div style="padding:22px;">
+                  <p style="font-family:'Special Elite',serif;font-size:19px;margin-bottom:9px;">Echo Chamber</p>
+                  <p class="typed" style="font-size:11px;color:#7A5C14;margin-bottom:14px;letter-spacing:1px;">MOBILE
+                    APP DESIGN · 2024</p>
+                  <p class="typed" style="font-size:11px;line-height:1.95;color:#1A120A;margin-bottom:18px;">A social
+                    audio platform for creatives. Built around the concept of serendipitous discovery — the app connects
+                    strangers through ambient soundscapes and shared moments.</p>
+                  <div style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:18px;">
+                    <span
+                      style="border:1px solid rgba(0,0,0,0.32);padding:2px 9px;font-size:10px;font-family:'Courier Prime',monospace;box-shadow:1px 2px 4px rgba(0,0,0,0.25);">Adobe
+                      Photoshop
+                    </span>
+                  </div>
+                  <div class="sticky sticky-yellow sticky--lifted"
+                    style="transform:rotate(3.5deg);display:inline-block;padding:11px 15px;">
+                    <div class="sticky-texture"></div>
+                    <p style="font-size:16px;font-weight:600;line-height:1.3;">Featured<br>Project 🏆</p>
+                    <div class="sticky-fold"></div>
+                  </div>
+                  <span class="stamp stamp-blue"
+                    style="margin-top:14px;display:block;transform:rotate(-5.5deg);width:fit-content;">VERIFIED</span>
+                  <span class="stamp stamp-red" style="font-size:9px;">AWARD WINNER</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-file reveal" style="--rot:-1.8deg;position:relative;margin-top:45px;">
+              <div class="pin pin-blue" style="top:-9px;right:52px;"></div>
+              <div class="tape tape-h"
+                style="position:absolute;top:-13px;left:50%;width:95px;transform:translateX(-50%) rotate(-1.5deg);">
+              </div>
+              <div class="polaroid depth-far"
+                style="transform:rotate(4deg);position:absolute;top:-25px;left:-20px;width:150px;z-index:20;">
+                <div class="polaroid-img">
+                  <img src="images/Noodles.jpg" alt="Noodles preview" class="clickable-preview"
+                    style="width:100%; height:138px; object-fit:cover;">
+                </div>
+                <div class="polaroid-gloss"></div>
+                <div class="pin pin-gold" style="top:-9px;left:50%;transform:translateX(-50%);"></div>
+              </div>
+              <div class="paper lined-paper paper-stained" style="transform:rotate(-1.8deg);padding-top:15px;">
+                <div class="paper-shadow-cast"></div>
+                <div class="case-header">CASE: NEON ATLAS — REF: PRJ-003</div>
+                <div style="padding:22px 18px 22px 62px;">
+                  <p style="font-family:'Special Elite',serif;font-size:19px;margin-bottom:9px;">Neon Atlas</p>
+                  <p class="typed" style="font-size:11px;color:#7A5C14;margin-bottom:14px;letter-spacing:1px;">DATA
+                    VISUALIZATION · 2023</p>
+                  <p class="typed" style="font-size:11px;line-height:28px;color:#1A120A;margin-bottom:0;">An interactive
+                    world map exploring global creative talent networks. Features over 200,000 data points rendered in
+                    real-time with custom WebGL shaders.</p>
+                  <div style="display:flex;flex-wrap:wrap;gap:7px;margin:18px 0;">
+                    <span
+                      style="border:1px solid rgba(0,0,0,0.32);padding:2px 9px;font-size:10px;font-family:'Courier Prime',monospace;box-shadow:1px 2px 4px rgba(0,0,0,0.25);">D3.js</span>
+                    <span
+                      style="border:1px solid rgba(0,0,0,0.32);padding:2px 9px;font-size:10px;font-family:'Courier Prime',monospace;box-shadow:1px 2px 4px rgba(0,0,0,0.25);">Deck.gl</span>
+                    <span
+                      style="border:1px solid rgba(0,0,0,0.32);padding:2px 9px;font-size:10px;font-family:'Courier Prime',monospace;box-shadow:1px 2px 4px rgba(0,0,0,0.25);">Python</span>
+                  </div>
+                  <p class="handwritten" style="font-size:21px;color:#0F2850;transform:rotate(1.2deg);">200k+ daily
+                    users</p>
+                  <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-top:18px;">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Extra evidence polaroids scattered at bottom -->
+          <div style="display:flex;gap:35px;justify-content:center;margin-top:55px;flex-wrap:wrap;position:relative;">
+            <div class="polaroid reveal depth-far" style="--rot:-9deg;width:165px;transform:rotate(-9deg);">
+              <div class="polaroid-img">
+                <img src="images/Xenon.jpg" alt="Xenon preview" class="clickable-preview"
+                  style="width:100%; height:152px; object-fit:cover;">
+              </div>
+              <div class="polaroid-gloss"></div>
+              <div class="polaroid-caption">Xenon brand identity work</div>
+              <div class="pin pin-red" style="top:-9px;left:50%;transform:translateX(-50%);"></div>
+            </div>
+            <div class="polaroid reveal depth-far"
+              style="--rot:4.5deg;width:145px;transform:rotate(4.5deg);margin-top:22px;">
+              <div class="polaroid-img">
+                <img src="images/E-shop.jpg" alt="E-shop preview" class="clickable-preview"
+                  style="width:100%; height:132px; object-fit:cover;">
+              </div>
+              <div class="polaroid-gloss"></div>
+              <div class="polaroid-caption">E-shop brand identity work</div>
+              <div class="pin pin-gold" style="top:-9px;right:22px;"></div>
+            </div>
+            <div class="polaroid reveal depth-far" style="--rot:-3.5deg;width:185px;transform:rotate(-3.5deg);">
+              <div class="polaroid-img">
+                <img src="images/Noodles.jpg" alt="Solo show preview" class="clickable-preview"
+                  style="width:100%; height:172px; object-fit:cover;">
+              </div>
+              <div class="polaroid-gloss"></div>
+              <div class="polaroid-caption">Solo show — March 2024</div>
+              <div class="pin pin-blue" style="top:-9px;left:32px;"></div>
+            </div>
+          </div>
+          <div class="case-number">CASE #114 · BOARD D · SECTOR 4</div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- CONTACT — FINAL CLASSIFIED FILE                             -->
+      <!-- ============================================================ -->
+      <section id="contact" style="padding:20px 0 90px;">
+        <div class="cork-panel">
+          <div class="cork-grain"></div>
+          <div class="reveal" style="margin-bottom:45px;position:relative;text-align:center;">
+            <div class="pin pin-red" style="top:-9px;left:50%;transform:translateX(-50%);"></div>
+            <div
+              style="background:#160A04;color:#EDE5C5;padding:13px 32px;display:inline-block;box-shadow:3px 4px 14px rgba(0,0,0,0.65);">
+              <p style="font-family:'Special Elite',serif;font-size:14px;letter-spacing:6px;">◈ CONTACT INTEL ◈</p>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:45px;flex-wrap:wrap;justify-content:center;position:relative;">
+
+            <!-- "Find Him" urgent note -->
+            <div class="reveal" style="--rot:-6.5deg;position:relative;align-self:flex-start;margin-top:35px;">
+              <div class="pin pin-red" style="top:-9px;left:50%;transform:translateX(-50%);"></div>
+              <div class="sticky sticky-yellow sticky--lifted"
+                style="transform:rotate(-6.5deg);width:205px;padding:22px;">
+                <div class="sticky-texture"></div>
+                <p class="handwritten" style="font-size:30px;font-weight:700;color:#7A0E0E;line-height:1.2;">
+                  FIND<br>HIM.</p>
+                <p class="handwritten" style="font-size:17px;margin-top:9px;color:#444;line-height:1.4;">He's always
+                  online<br>after midnight.</p>
+                <p class="handwritten" style="font-size:14px;margin-top:9px;color:#888;">— Case note 47</p>
+                <div class="sticky-fold"></div>
+              </div>
+            </div>
+
+            <!-- Main contact document -->
+            <div class="reveal" style="--rot:1.2deg;position:relative;flex:1;min-width:285px;max-width:420px;">
+              <div class="pin pin-gold" style="top:-9px;left:42px;"></div>
+              <div class="pin pin-gold" style="top:-9px;right:42px;"></div>
+              <div class="tape tape-h"
+                style="position:absolute;top:-13px;left:50%;width:130px;transform:translateX(-50%) rotate(-2.5deg);">
+              </div>
+
+              <div class="secure-watermark-wrap">
+                <div class="torn-paper paper-warped paper-stained paper-folded paper-crinkled"
+                  style="transform:rotate(1.5deg); padding:32px; background:var(--paper-aged);position:relative;">
+                  <div class="paper-curl paper-curl--tr"></div>
+                  <div class="paper-shadow-cast"></div>
+                  <span class="stamp stamp-red"
+                    style="position:absolute; top:17px; right:17px; font-size:10px;transform:rotate(-14deg);">CLASSIFIED</span>
+                  <div class="secure-watermark">SECURE</div>
+                  <div class="fingerprint-mark" style="top:40px;left:18px;opacity:0.06;"></div>
+                  <p
+                    style="font-family:'Special Elite',serif;font-size:13px;letter-spacing:3px;margin-bottom:22px;border-bottom:1px solid rgba(0,0,0,0.22);padding-bottom:12px;">
+                    CONTACT DETAILS — SECURE CHANNEL</p>
+
+                  <div style="margin-bottom:18px;">
+                    <p class="typed" style="font-size:11px;color:#7A5C14;letter-spacing:2px;margin-bottom:5px;">EMAIL:
+                    </p>
+                    <p class="handwritten" style="font-size:23px;color:#0F2850;"><a href="mailto:sthagyan63@email.com"
+                        style="color:inherit;text-decoration:none;">sthagyan63@email.com</a></p>
+                  </div>
+                  <div style="margin-bottom:18px;">
+                    <p class="typed" style="font-size:11px;color:#7A5C14;letter-spacing:2px;margin-bottom:5px;">
+                      LOCATION:</p>
+                    <p class="handwritten" style="font-size:23px;color:#1A120A;">Somewhere in the dark</p>
+                  </div>
+                  <div style="margin-bottom:18px;">
+                    <p class="typed" style="font-size:11px;color:#7A5C14;letter-spacing:2px;margin-bottom:5px;">
+                      AVAILABILITY:</p>
+                    <p class="handwritten" style="font-size:23px;color:#1A120A;">Open to new cases</p>
+                  </div>
+                  <span class="stamp stamp-blue" style="font-size:9px;">CLEARED FOR CONTACT</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Business card — rotated, dramatic -->
+            <div class="reveal" style="--rot:8.5deg;position:relative;align-self:center;">
+              <div class="pin pin-white" style="top:-9px;right:22px;"></div>
+              <div class="tape tape-h"
+                style="position:absolute;top:-13px;left:50%;width:65px;transform:translateX(-50%) rotate(4.5deg);">
+              </div>
+              <div class="biz-card-shadow"></div>
+              <div
+                style="background:#100C07;color:#EDE5C5;padding:26px 32px;transform:rotate(8.5deg);box-shadow:8px 10px 32px rgba(0,0,0,0.95),3px 4px 10px rgba(0,0,0,0.6);width:250px;position:relative;">
+                <div style="border:1px solid rgba(255,190,80,0.28);padding:18px;">
+                  <p style="font-family:'Special Elite',serif;font-size:21px;letter-spacing:2px;margin-bottom:5px;">Gyan
+                    Shrestha</p>
+                  <p
+                    style="font-family:'Courier Prime',monospace;font-size:10px;letter-spacing:3px;color:rgba(255,190,80,0.65);text-transform:uppercase;margin-bottom:18px;">
+                    Graphic Designer</p>
+                  <div style="width:100%;height:1px;background:rgba(255,190,80,0.18);margin-bottom:14px;"></div>
+                  <p
+                    style="font-family:'Courier Prime',monospace;font-size:10px;color:rgba(230,205,135,0.55);line-height:1.9;">
+                    <a href="https://behance.net/gyanshrestha63" target="_blank"
+                      style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(255,190,80,0.1);">behance.net/gyanshrestha63</a><br>
+                    <a href="https://instagram.com/gyan_shresthaa_/" target="_blank"
+                      style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(255,190,80,0.1);">instagram.com/gyan_shresthaa_</a><br>
+                    <a href="https://gyanshrestha.com.np" target="_blank"
+                      style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(255,190,80,0.1);">gyanshrestha.com.np</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Final case closed stamp -->
+          <div class="reveal" style="text-align:center;margin-top:90px;position:relative;">
+            <div class="pin pin-red" style="top:-12px;left:50%;transform:translateX(-50%);"></div>
+            <!-- Large wax seal under the stamp -->
+            <div class="wax-seal"
+              style="display:inline-block;margin-bottom:18px;transform:rotate(-4deg);width:72px;height:72px;font-size:32px;">
+            </div>
+            <br>
+            <span class="stamp stamp-red paper-warped"
+              style="font-size:22px;transform:rotate(-3.5deg);display:inline-block;padding:17px 45px;letter-spacing:10px;font-family:'Special Elite',serif;background:rgba(120,20,20,0.06);">CLOSED
+              CASE</span>
+            <div class="handwritten"
+              style="font-size:19px;color:rgba(190,155,80,0.55);margin-top:32px;letter-spacing:1px;">Archive #114 ·
+              Investigation Concluded · 2025</div>
+          </div>
+          <div class="case-number">CASE #114 · BOARD E · SECTOR 5 · FINAL</div>
+        </div>
+      </section>
+
     </div>
+  </div>
 
-    <!-- Modal Overlay for Poster Project -->
-    <div class="project-modal" id="poster-modal">
-        <div class="modal-backdrop"></div>
-        <div class="modal-content">
-            <button class="close-modal" aria-label="Close Modal">
-                <ion-icon name="close-outline"></ion-icon>
-            </button>
-
-            <div class="modal-header">
-                <h2>Creative Posters</h2>
-                <p>A showcase of impactful poster designs and marketing materials.</p>
-            </div>
-
-            <div class="logos-gallery">
-                <!-- Poster Card 1 -->
-                <div class="logo-card">
-                    <img src="images/cr7.png" alt="cr7">
-                </div>
-                <!-- Poster Card 2 -->
-                <div class="logo-card">
-                    <img src="images/Noodles.jpg" alt="noodles">
-                </div>
-                <!-- Poster Card 3 -->
-                <div class="logo-card">
-                    <img src="images/Ticket Poster.jpg" alt="Poster 3">
-                </div>
-            </div>
-        </div>
+  <!-- Image Lightbox Modal -->
+  <div id="image-lightbox" class="lightbox">
+    <span class="lightbox-close" id="lightbox-close">&times;</span>
+    <div class="lightbox-content">
+      <img id="lightbox-img" src="" alt="Full size preview">
+      <div id="lightbox-caption"></div>
     </div>
+  </div>
 
-    <section id="education" class="education-section">
-        <div class="container">
-            <h2 class="section-title reveal">
-                <center>Education</center>
-            </h2>
-            <div class="education-grid">
-                <!-- Education Card 1 -->
-                <div class="education-card reveal">
-                    <div class="card-glow"></div>
-                    <div class="card-icon">
-                        <!-- Using a generic 3D looking avatar/icon or placeholder -->
-                        <img src="images/student.png" alt="Student Icon">
-                    </div>
-                    <div class="card-content">
-                        <span class="edu-year">2023 - 2025</span>
-                        <h3 class="edu-degree">Higher Secondary Education (NEB)</h3>
-                        <p class="edu-school">V.S. Niketan High School</p>
-                        <p class="edu-loc">Kathmandu, Nepal</p>
-                    </div>
-                </div>
-                <!-- Education Card 2 -->
-                <div class="education-card reveal">
-                    <div class="card-glow"></div>
-                    <div class="card-icon">
-                        <img src="https://cdn3d.iconscout.com/3d/premium/thumb/web-developer-4506461-3738664.png"
-                            alt="Developer Icon">
-                    </div>
-                    <div class="card-content">
-                        <span class="edu-year">Present - 2030</span>
-                        <h3 class="edu-degree">Bachelor of Engineering in Information Technology</h3>
-                        <p class="edu-school">University</p>
-                        <p class="edu-loc">Finland</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <h2 class="section-title reveal">
-                <center>Get in Touch</center>
-            </h2>
-            <div class="contact-wrapper reveal">
-                <div class="contact-info">
-                    <p class="contact-intro">I'm currently available for freelance projects and full-time opportunities.
-                        If you're interested in working together, please don't hesitate to get in touch.</p>
-
-                    <div class="info-item">
-                        <span class="label">Email</span>
-                        <div class="large-value">sthagyan63@gmail.com</div>
-                    </div>
-
-                    <div class="info-item">
-                        <span class="label">Location</span>
-                        <div class="large-value">Kathmandu, Nepal</div>
-                    </div>
-                </div>
-
-                <form class="professional-form">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" required placeholder="John Doe">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" required placeholder="john@example.com">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" required placeholder="Project Proposal">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" rows="5" required placeholder="Tell me about your project..."></textarea>
-                    </div>
-                    <button type="submit" class="btn primary submit-btn">Send Message</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container footer-content">
-            <div class="socials">
-                <a href="https://linkedin.com/in/yourprofile" aria-label="LinkedIn"><ion-icon
-                        name="logo-linkedin"></ion-icon></a>
-                <a href="https://www.behance.net/gyanshrestha63" aria-label="Behance"><ion-icon
-                        name="logo-behance"></ion-icon></a>
-                <a href="https://www.instagram.com/gyan_shresthaa_/" aria-label="Instagram"><ion-icon
-                        name="logo-instagram"></ion-icon></a>
-            </div>
-            <p class="copyright">Copyright @2026. Gyan Shrestha</p>
-        </div>
-    </footer>
-    <script src="script.js"></script>
-
+  <script src="script.js"></script>
 </body>
 
 </html>
